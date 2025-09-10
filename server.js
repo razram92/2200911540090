@@ -12,16 +12,16 @@ const errorHandler = require("./middlewares/errorHandler");
 const getCountry = require("./utils/geoip");
 
 const app = express();
-app.set("trust proxy", true); // trust x-forwarded-for when behind proxy
+app.set("trust proxy", true);
 app.use(express.json());
 
-// attach logging middleware (mandatory)
+
 app.use(logger);
 
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/urlshortener";
 
-/* --- Connect to MongoDB and start server --- */
+
 (async function start() {
   try {
     await mongoose.connect(MONGO_URI);
@@ -35,14 +35,7 @@ const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/urlshorten
   }
 })();
 
-/* ---------------------------
-   POST /shorturls
-   Create short URL
-   Request body: { url, validity, shortcode }
-   - url: string (required, valid URL)
-   - validity: integer minutes (optional, default 30)
-   - shortcode: alphanumeric (optional)
-   --------------------------- */
+
 app.post("/shorturls", async (req, res, next) => {
   try {
     const { url, validity, shortcode } = req.body;
@@ -100,11 +93,7 @@ app.post("/shorturls", async (req, res, next) => {
   }
 });
 
-/* ---------------------------
-   GET /shorturls/:shortcode
-   Retrieve stats for a shortcode
-   Response contains originalUrl, createdAt, expiry, totalClicks, clicks[]
-   --------------------------- */
+
 app.get("/shorturls/:shortcode", async (req, res, next) => {
   try {
     const { shortcode } = req.params;
@@ -128,12 +117,6 @@ app.get("/shorturls/:shortcode", async (req, res, next) => {
   }
 });
 
-/* ---------------------------
-   GET /:shortId
-   Redirect to original URL and log click
-   - returns 404 if not found
-   - returns 410 if expired
-   --------------------------- */
 app.get("/:shortId", async (req, res, next) => {
   try {
     const { shortId } = req.params;
