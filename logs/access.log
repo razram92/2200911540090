@@ -1,0 +1,2 @@
+{"timestamp":"2025-09-10T08:26:15.915Z","event":"mongodb_connected","uri":"mongodb+srv://rohitatcollgege22:Razram%4092@cluster0.gy9bc5w.mongodb.net/urlshortener"}
+{"timestamp":"2025-09-10T08:26:15.929Z","event":"server_started","port":"5000"}
