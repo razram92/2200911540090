@@ -17,6 +17,8 @@ It allows users to create short links, set expiry times, track clicks (analytics
 ## 🖼️ Screenshots
 <a href="https://ibb.co/TMpCTZXk"><img src="https://i.ibb.co/Qvz5cZBf/Screenshot-2025-09-10-140939.png" alt="Screenshot-2025-09-10-140939" border="0"></a>
 
+<a href="https://ibb.co/fdMJQgnF"><img src="https://i.ibb.co/RT287FBb/Screenshot-2025-09-10-143121.png" alt="Screenshot-2025-09-10-143121" border="0"></a>
+
 
 
 
